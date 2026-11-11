@@ -12,6 +12,8 @@
 Input: long-format CSV with columns `Product, Unit, Time_min, Percent_Dissolved`.
 Output (saved to `outputs/`): `f2_summary.csv` (per Test: points used, f1, f2, verdict, variability status) and `mean_profiles.png` (mean profiles, Reference vs Tests). Results are also printed to the console.
 
+The plot shows all time points, but f2 and f1 are calculated only from the time points retained after the 85% rule.
+
 ## Rules implemented (with PDF page refs)
 
 Source: FDA 1997 guidance, *Dissolution Testing of Immediate Release Solid Oral Dosage Forms* (`docs/`). Page numbers are the **printed** page numbers. All rules sit in the constants block at the top of `f2_calculator.py`.
@@ -55,6 +57,8 @@ This is an educational/portfolio tool that uses synthetic data. It has not been 
 ## Source document
 
 The rules implemented come from the FDA 1997 guidance *Dissolution Testing of Immediate Release Solid Oral Dosage Forms*. The PDF is not included in this repository; please download it from FDA's website.
+
+Official source: https://www.fda.gov/regulatory-information/search-fda-guidance-documents/dissolution-testing-immediate-release-solid-oral-dosage-forms
 
 ## How to run
 
