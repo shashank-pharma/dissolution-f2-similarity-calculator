@@ -1,0 +1,3 @@
+Test,Reference,n_points_used,time_points_used,time_points_dropped,f1,f2,verdict,variability_status
+Test_A,Reference,5,5 10 15 20 30,45,4.88,71.72,Generally taken as similar (f2 >= 50 and f1 <= 15) | variability limits EXCEEDED: the PDF's conditions for using mean data are not met,EXCEEDS
+Test_B,Reference,6,5 10 15 20 30 45,,36.23,29.26,Does not meet the generally used criterion (f2 >= 50 and f1 <= 15) | variability limits EXCEEDED: the PDF's conditions for using mean data are not met,EXCEEDS
