@@ -1,13 +1,18 @@
 # dissolution-f2
 
-**Important:** All data in `data/sample_dissolution.csv` is **synthetic** (randomly generated, fixed seed) and is for **demonstration only**. It does not represent any real product, batch, or study and must not be used for any regulatory or quality decision.
+A simple calculator for comparing dissolution profiles using the f1 and f2 factors, with rules taken from the FDA 1997 guidance (educational, synthetic data).
+
+**Important:** All data in the `data/` folder is **synthetic** (randomly generated, fixed seed) and is for **demonstration only**. It does not represent any real product, batch, or study and must not be used for any regulatory or quality decision.
 
 ## Usage
 
 ```bash
 .venv/bin/python f2_calculator.py data/sample_dissolution.csv --reference Reference
+.venv/bin/python f2_calculator.py data/sample_dissolution_lowvar.csv --reference Reference
 .venv/bin/python test_f2.py
 ```
+
+Note: each run overwrites `outputs/f2_summary.csv` and `outputs/mean_profiles.png`.
 
 Input: long-format CSV with columns `Product, Unit, Time_min, Percent_Dissolved`.
 Output (saved to `outputs/`): `f2_summary.csv` (per Test: points used, f1, f2, verdict, variability status) and `mean_profiles.png` (mean profiles, Reference vs Tests). Results are also printed to the console.
@@ -47,6 +52,14 @@ Both datasets are **synthetic** and for **demonstration only**.
 
 - `data/sample_dissolution.csv` is **high-variability**. Its variability check fails by design (results saved as `outputs/f2_summary_highvar.csv` and `outputs/mean_profiles_highvar.png`).
 - `data/sample_dissolution_lowvar.csv` is **low-variability** (target CV about 8% at 5 min, about 4% at later time points; same mean profiles as the first file). Results are in `outputs/f2_summary_lowvar.csv` and `outputs/mean_profiles_lowvar.png`.
+
+![Mean dissolution profiles, high-variability dataset](outputs/mean_profiles_highvar.png)
+
+*Mean profiles for `data/sample_dissolution.csv` (high-variability dataset). Synthetic data.*
+
+![Mean dissolution profiles, low-variability dataset](outputs/mean_profiles_lowvar.png)
+
+*Mean profiles for `data/sample_dissolution_lowvar.csv` (low-variability dataset). Synthetic data.*
 
 Note: the PDF wording for the f2 criterion is "greater than 50 (50-100)" (printed p. 9); this tool treats f2 = 50.0 exactly as similar.
 
